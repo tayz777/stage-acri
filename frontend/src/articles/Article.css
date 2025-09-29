@@ -64,51 +64,31 @@
   overflow: hidden;
 }
 
-/* Article Header - Style magazine Zara */
+/* Article Header - Style Zara minimaliste */
 .article-header {
-  padding: 6rem 4rem 4rem 4rem;
+  padding: 8rem 4rem 6rem 4rem;
   background: var(--zara-white);
   color: var(--zara-black);
-  border-bottom: 1px solid var(--zara-light-gray);
   text-align: center;
 }
 
 .article-meta {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 3rem;
+  margin-bottom: 4rem;
   flex-wrap: wrap;
 }
 
-.article-category {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 400;
-  color: var(--zara-text);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid var(--zara-border);
-  background: var(--zara-white);
-  transition: all 0.3s ease;
-}
-
-.article-category:hover {
-  border-color: var(--zara-black);
-  color: var(--zara-black);
-}
-
+.article-category,
 .article-date,
 .read-time {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 300;
   color: var(--zara-text);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
 }
 
 .article-header h1 {
