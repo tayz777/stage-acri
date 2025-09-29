@@ -1,0 +1,8 @@
+# Configuration SMTP pour l'envoi d'emails
+# Créez un fichier .env dans le dossier backend avec ce contenu :
+
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=votre.email@gmail.com
+SMTP_PASSWORD=votre_mot_de_passe_application
+CONTACT_EMAIL=moreau_sacha@yahoo.fr
