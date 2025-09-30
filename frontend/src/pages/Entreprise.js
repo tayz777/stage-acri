@@ -114,7 +114,7 @@ const Entreprise = () => {
               <h2>SOPHIA ANTIPOLIS</h2>
               <p>Basée au cœur du technopôle de Sophia Antipolis, ACRI-ST bénéficie d'un écosystème d'innovation unique en Europe, favorisant les collaborations avec les leaders technologiques et scientifiques.</p>
               <div className="location-details">
-                <span>Valbonne, France</span>
+                <span>Sophia Antipolis, France</span>
                 <span>•</span>
                 <span>Côte d'Azur</span>
               </div>

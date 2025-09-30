@@ -3,7 +3,7 @@ export const articlesData = [
   {
     id: 'integration',
     title: 'Intégration en entreprise',
-    excerpt: 'Découvrez comment j\'ai pris mes marques dans mon nouvel environnement de travail et les premiers défis rencontrés.',
+    excerpt: 'Retour sur mon immersion chez ACRI-ST et sur la façon dont j’ai pris mes marques au sein de l’équipe.',
     date: '2024-01-15',
     category: 'Expérience',
     readTime: '5 min',

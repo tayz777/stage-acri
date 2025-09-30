@@ -80,13 +80,14 @@
   background: var(--pure-white);
   overflow: hidden;
   position: relative;
+  color: black;
 }
 
 /* Article Header - Hero moderne */
 .article-header {
   padding: 8rem 3rem 6rem 3rem;
   background: var(--pure-white);
-  color: var(--deep-black);
+  color: black;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -99,9 +100,9 @@
   left: 50%;
   width: 200%;
   height: 100%;
-  background: radial-gradient(ellipse at center, var(--warm-gray) 0%, transparent 70%);
   transform: translateX(-50%);
   z-index: -1;
+  color: black;
 }
 
 .article-meta {
@@ -135,6 +136,8 @@
   width: 0;
   height: 1px;
   background: var(--deep-black);
+  color: black;
+
   transition: width 0.3s ease;
 }
 
@@ -142,6 +145,9 @@
 .article-date:hover::after,
 .read-time:hover::after {
   width: 100%;
+  color: var(--subtle-gray);
+
+
 }
 
 .article-header h1 {
@@ -174,7 +180,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
   font-weight: 300;
-  color: var(--subtle-gray);
+  color: black;
   line-height: 1.7;
   max-width: 700px;
   margin: 0 auto;
@@ -363,7 +369,6 @@
   font-style: italic;
   position: relative;
   border-radius: 0 8px 8px 0;
-  box-shadow: var(--shadow-light);
 }
 
 .article-body blockquote::before {
@@ -393,7 +398,6 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: var(--shadow-medium);
 }
 
 .article-image img {
@@ -469,27 +473,13 @@
   border-radius: 6px;
 }
 
-.nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.05) 50%, transparent 100%);
-  transition: left 0.5s ease;
-}
+
 
 .nav-link:hover::before {
   left: 100%;
 }
 
-.nav-link:hover {
-  border-color: var(--deep-black);
-  color: var(--deep-black);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
-}
+
 
 /* Scrolling Progress Bar moderne */
 .progress-bar {
@@ -501,7 +491,6 @@
   background: linear-gradient(90deg, var(--deep-black) 0%, var(--subtle-gray) 100%);
   z-index: 1000;
   transition: width 0.1s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* Responsive Design moderne */

@@ -205,7 +205,7 @@
 }
 
 .article-card:hover .article-category {
-  color: var(--pure-white);
+  color: black;
   border-color: var(--deep-black);
 }
 

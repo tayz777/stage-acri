@@ -14,8 +14,19 @@ const Header = () => {
     return location.pathname === path;
   };
 
+  // Déterminer la classe du header selon la page
+  const getHeaderClass = () => {
+    const path = location.pathname;
+    if (path === '/contact') {
+      return 'header black-bg'; // Contact a un fond noir
+    } else if (path === '/entreprise' || path.startsWith('/articles')) {
+      return 'header white-bg'; // Entreprise et Articles ont un fond blanc
+    }
+    return 'header'; // Page d'accueil (SpacePlanet) - style par défaut
+  };
+
   return (
-    <header className="header">
+    <header className={getHeaderClass()}>
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
@@ -30,7 +41,7 @@ const Header = () => {
                   className={`nav-link ${isActive('/') ? 'active' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  À propos
+                  Accueil
                 </Link>
               </li>
               <li className="nav-item">

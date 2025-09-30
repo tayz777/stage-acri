@@ -7,48 +7,48 @@ const Articles = () => {
     {
       id: 'integration',
       title: 'Intégration en entreprise',
-      excerpt: 'Découvrez comment j\'ai pris mes marques dans mon nouvel environnement de travail et les premiers défis rencontrés.',
-      date: '15 janvier 2024',
+      excerpt: 'Retour sur mon immersion chez ACRI-ST et sur la façon dont j’ai pris mes marques au sein de l’équipe.',
+      date: '02 juin 2025',
       category: 'Expérience',
       readTime: '5 min'
     },
     {
       id: 'difficultes',
       title: 'Difficultés rencontrées et solutions',
-      excerpt: 'Un aperçu des problèmes techniques et organisationnels que j\'ai dû résoudre pendant mon stage.',
-      date: '20 février 2024',
+      excerpt: 'Les défis techniques rencontrés lors du passage à React et l\'intégration d\'APIs.',
+      date: '10 juin 2025',
       category: 'Technique',
       readTime: '7 min'
     },
     {
       id: 'missions',
       title: 'Missions techniques réalisées',
-      excerpt: 'Détail des projets et tâches techniques sur lesquels j\'ai travaillé pendant mon stage.',
-      date: '10 mars 2024',
+      excerpt: 'Développement backend avec Node.js, Express et PostgreSQL pour le projet EarthView.',
+      date: '20 juin 2025',
       category: 'Projets',
       readTime: '8 min'
     },
     {
       id: 'competences',
       title: 'Compétences acquises',
-      excerpt: 'Les nouvelles compétences techniques et soft skills que j\'ai développées pendant cette expérience.',
-      date: '25 avril 2024',
+      excerpt: 'Travail en équipe, bonnes pratiques et finalisation du projet EarthView chez ACRI-ST.',
+      date: '28 juin 2025',
       category: 'Formation',
       readTime: '6 min'
     },
     {
       id: 'actualite',
       title: 'Actualité technique et veille',
-      excerpt: 'Ma veille technologique et les nouvelles tendances que j\'ai découvertes pendant mon stage.',
-      date: '5 mai 2024',
+      excerpt: 'Découverte des technologies spatiales et veille technologique du secteur chez ACRI-ST.',
+      date: '05 juillet 2025',
       category: 'Veille',
       readTime: '4 min'
     },
     {
       id: 'bilan-stage',
       title: 'Bilan du stage',
-      excerpt: 'Mon analyse réflexive de cette expérience professionnelle enrichissante et les leçons apprises.',
-      date: '15 juin 2024',
+      excerpt: 'Soutenance, retour d\'expérience et analyse réflexive de mon stage chez ACRI-ST.',
+      date: '12 juillet 2025',
       category: 'Bilan',
       readTime: '10 min'
     }
@@ -59,8 +59,8 @@ const Articles = () => {
       <div className="container">
         <h1>Mes Articles</h1>
         <p className="articles-intro">
-          Découvrez mes réflexions et expériences acquises pendant mon stage. 
-          Chaque article présente un aspect différent de mon parcours professionnel.
+          Découvrez mon parcours de 10 semaines chez ACRI-ST, de l'intégration jusqu'au projet EarthView. 
+          Chaque article retrace une étape de cette expérience dans le secteur spatial.
         </p>
         
         <div className="articles-grid">
@@ -104,11 +104,12 @@ const Articles = () => {
         </div>
         
         <div className="articles-summary">
-          <h2>Résumé des articles</h2>
+          <h2>Mon parcours chez ACRI-ST</h2>
           <p>
-            Ces articles couvrent l'ensemble de mon expérience de stage, de l'intégration 
-            jusqu'au bilan final. Ils respectent les critères d'évaluation demandés et 
-            présentent une analyse réflexive de mon parcours professionnel.
+            Ces articles retracent mon évolution technique et professionnelle pendant 
+            10 semaines chez ACRI-ST, de la découverte du secteur spatial jusqu'à la 
+            réalisation du projet EarthView, une application complète de gestion de 
+            commandes de traitement de données satellites.
           </p>
         </div>
       </div>

@@ -65,7 +65,7 @@ a {
 }
 
 a:hover {
-  color: #2980b9;
+  color: #000000;
 }
 
 /* Boutons */
@@ -99,13 +99,10 @@ a:hover {
   border-radius: 10px;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Grille */
