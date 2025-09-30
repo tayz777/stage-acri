@@ -44,7 +44,12 @@ const ContactSatellite = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/contact', {
+      // Utiliser l'API route Vercel en production, Flask en local
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? '/api/contact' 
+        : 'https://stage-acri-2025.vercel.app/api/contact';
+      
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
