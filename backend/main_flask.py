@@ -25,8 +25,11 @@ def root():
 def health_check():
     return jsonify({"status": "healthy", "environment": "development"})
 
-@app.route("/api/contact", methods=["POST"])
+@app.route("/api/contact", methods=["POST", "OPTIONS"])
 def send_contact_email():
+    # Gestion des requêtes OPTIONS pour CORS
+    if request.method == "OPTIONS":
+        return jsonify({"message": "OK"}), 200
     try:
         # Récupération des données du formulaire
         data = request.get_json()
