@@ -1,4 +1,8 @@
-// API route Vercel pour l'envoi d'email
+// API route Vercel pour l'envoi d'email avec Resend
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export default async function handler(req, res) {
   // Configuration CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,11 +34,53 @@ export default async function handler(req, res) {
     console.log(`   Sujet: ${subject}`);
     console.log(`   Message: ${message}`);
 
-    // Pour l'instant, on simule l'envoi d'email
-    // En production, vous pourriez utiliser un service comme SendGrid, Resend, ou Nodemailer
-    
-    // Simulation d'un délai d'envoi
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Envoi d'email réel avec Resend
+    if (process.env.RESEND_API_KEY) {
+      const { data, error } = await resend.emails.send({
+        from: 'Portfolio <noreply@votre-domaine.com>', // Remplacez par votre domaine vérifié
+        to: ['moreau_sacha@yahoo.fr'], // Votre email
+        subject: `Nouveau message de contact: ${subject}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+              Nouveau message de contact
+            </h2>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <h3 style="color: #007bff; margin-top: 0;">Informations du contact</h3>
+              <p><strong>Nom:</strong> ${firstName} ${lastName}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Entreprise:</strong> ${company || 'Non spécifiée'}</p>
+              <p><strong>Sujet:</strong> ${subject}</p>
+            </div>
+            
+            <div style="background: #fff; padding: 20px; border: 1px solid #dee2e6; border-radius: 8px;">
+              <h3 style="color: #333; margin-top: 0;">Message</h3>
+              <p style="line-height: 1.6; color: #555;">${message.replace(/\n/g, '<br>')}</p>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6; color: #666; font-size: 14px;">
+              <p>Ce message a été envoyé depuis votre portfolio de stage.</p>
+              <p>Vous pouvez répondre directement à: ${email}</p>
+            </div>
+          </div>
+        `,
+        replyTo: email, // Permet de répondre directement au contact
+      });
+
+      if (error) {
+        console.error('Erreur Resend:', error);
+        return res.status(500).json({ 
+          error: 'Erreur lors de l\'envoi de l\'email' 
+        });
+      }
+
+      console.log('✅ Email envoyé avec succès:', data);
+    } else {
+      console.log('⚠️ RESEND_API_KEY non configurée - simulation d\'envoi');
+      // Simulation si pas de clé API
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
 
     return res.status(200).json({
       message: 'Email envoyé avec succès',
