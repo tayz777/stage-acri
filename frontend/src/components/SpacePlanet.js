@@ -25,7 +25,6 @@ const SpacePlanet = () => {
 
   // 7 points de navigation sur la Terre
   const pois = [
-    { id: 'about', label: 'Accueil', route: '/home', lat: 20, lon: -30 },
     { id: 'entreprise', label: 'Entreprise', route: '/entreprise', lat: -10, lon: 60 },
     { id: 'articles', label: 'Articles', route: '/articles', lat: 40, lon: 120 },
     { id: 'contact', label: 'Contact', route: '/contact', lat: -35, lon: -120 },
