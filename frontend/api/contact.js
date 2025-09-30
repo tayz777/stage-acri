@@ -1,5 +1,5 @@
 // API route Vercel pour l'envoi d'email avec Nodemailer
-import nodemailer from 'nodemailer';
+const nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
   // Configuration CORS
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     console.log(`   Message: ${message}`);
 
     // Configuration du transporteur email pour Yahoo
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: 'yahoo',
       auth: {
         user: process.env.EMAIL_USER, 
