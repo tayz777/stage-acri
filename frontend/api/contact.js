@@ -1,5 +1,5 @@
-// API route Vercel pour l'envoi d'email avec Nodemailer
-const nodemailer = require('nodemailer');
+// API route Vercel pour l'envoi d'email avec Resend
+const { Resend } = require('resend');
 
 export default async function handler(req, res) {
   // Configuration CORS
@@ -32,18 +32,12 @@ export default async function handler(req, res) {
     console.log(`   Sujet: ${subject}`);
     console.log(`   Message: ${message}`);
 
-    // Configuration du transporteur email pour Yahoo
-    const transporter = nodemailer.createTransport({
-      service: 'yahoo',
-      auth: {
-        user: process.env.EMAIL_USER, 
-        pass: process.env.EMAIL_PASS  
-      }
-    });
+    // Configuration Resend
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Configuration de l'email
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    const emailData = {
+      from: 'onboarding@resend.dev',
       to: 'moreau_sacha@yahoo.fr',
       subject: `Nouveau message de contact: ${subject}`,
       html: `
@@ -74,15 +68,15 @@ export default async function handler(req, res) {
       replyTo: email
     };
 
-    // Envoi de l'email
-    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+    // Envoi de l'email avec Resend
+    if (process.env.RESEND_API_KEY) {
       try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log('✅ Email envoyé avec succès:', info.messageId);
+        const info = await resend.emails.send(emailData);
+        console.log('✅ Email envoyé avec succès:', info.data?.id);
         return res.status(200).json({
           message: 'Email envoyé avec succès',
           status: 'success',
-          messageId: info.messageId
+          messageId: info.data?.id
         });
       } catch (emailError) {
         console.error('❌ Erreur lors de l\'envoi de l\'email:', emailError);
@@ -92,10 +86,10 @@ export default async function handler(req, res) {
         });
       }
     } else {
-      console.log('⚠️ Variables d\'environnement email non configurées');
+      console.log('⚠️ Variable d\'environnement RESEND_API_KEY non configurée');
       return res.status(500).json({
         error: 'Configuration email manquante',
-        details: 'EMAIL_USER et EMAIL_PASS non configurés'
+        details: 'RESEND_API_KEY non configuré'
       });
     }
 
