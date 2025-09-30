@@ -32,12 +32,12 @@ export default async function handler(req, res) {
     console.log(`   Sujet: ${subject}`);
     console.log(`   Message: ${message}`);
 
-    // Configuration du transporteur email
+    // Configuration du transporteur email pour Yahoo
     const transporter = nodemailer.createTransporter({
-      service: 'gmail',
+      service: 'yahoo',
       auth: {
-        user: process.env.EMAIL_USER, // Votre email Gmail
-        pass: process.env.EMAIL_PASS  // Mot de passe d'application Gmail
+        user: process.env.EMAIL_USER, // Votre email Yahoo
+        pass: process.env.EMAIL_PASS  // Mot de passe d'application Yahoo
       }
     });
 
