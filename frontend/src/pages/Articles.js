@@ -66,23 +66,41 @@ const Articles = () => {
         <div className="articles-grid">
           {articles.map((article) => (
             <article key={article.id} className="article-card">
-              <div className="article-header">
-                <span className="article-category">{article.category}</span>
-                <span className="article-date">{article.date}</span>
-              </div>
-              
-              <h2 className="article-title">{article.title}</h2>
-              
-              <p className="article-excerpt">{article.excerpt}</p>
-              
-              <div className="article-footer">
-                <span className="read-time">⏱️ {article.readTime}</span>
-                <Link to={`/articles/${article.id}`} className="read-more">
-                  Lire l'article →
-                </Link>
+              <div className="article-card-content">
+                <div className="article-header">
+                  <span className="article-category">{article.category}</span>
+                  <span className="article-date">{article.date}</span>
+                </div>
+                
+                <h2 className="article-title">{article.title}</h2>
+                
+                <p className="article-excerpt">{article.excerpt}</p>
+                
+                <div className="article-footer">
+                  <span className="read-time">{article.readTime}</span>
+                  <Link to={`/articles/${article.id}`} className="read-more">
+                    Lire l'article
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
+        </div>
+        
+        {/* Stats Section */}
+        <div className="articles-stats">
+          <div className="stat-item">
+            <div className="stat-number">6</div>
+            <div className="stat-label">Articles</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">40</div>
+            <div className="stat-label">Minutes de lecture</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">10</div>
+            <div className="stat-label">Semaines de stage</div>
+          </div>
         </div>
         
         <div className="articles-summary">

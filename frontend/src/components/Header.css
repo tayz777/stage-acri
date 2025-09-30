@@ -40,6 +40,9 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -47,6 +50,7 @@
 .nav-link:hover,
 .nav-link.active {
   color: rgb(0, 0, 0);
+  background: none !important;
 }
 
 .nav-link.active::after {
