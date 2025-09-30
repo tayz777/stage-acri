@@ -79,18 +79,25 @@ export default async function handler(req, res) {
       try {
         const info = await transporter.sendMail(mailOptions);
         console.log('✅ Email envoyé avec succès:', info.messageId);
+        return res.status(200).json({
+          message: 'Email envoyé avec succès',
+          status: 'success',
+          messageId: info.messageId
+        });
       } catch (emailError) {
         console.error('❌ Erreur lors de l\'envoi de l\'email:', emailError);
-        // Continue même en cas d'erreur d'envoi
+        return res.status(500).json({
+          error: 'Erreur lors de l\'envoi de l\'email',
+          details: emailError.message
+        });
       }
     } else {
       console.log('⚠️ Variables d\'environnement email non configurées');
+      return res.status(500).json({
+        error: 'Configuration email manquante',
+        details: 'EMAIL_USER et EMAIL_PASS non configurés'
+      });
     }
-
-    return res.status(200).json({
-      message: 'Email envoyé avec succès',
-      status: 'success'
-    });
 
   } catch (error) {
     console.error('Erreur lors du traitement:', error);
