@@ -12,7 +12,10 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configuration CORS pour permettre les requêtes depuis le frontend React
-CORS(app, origins=["http://localhost:3000"])
+CORS(app, origins=[
+    "http://localhost:3000",
+    "https://stage-acri-2025.vercel.app"
+])
 
 @app.route("/", methods=["GET"])
 def root():
